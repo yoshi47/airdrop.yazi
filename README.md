@@ -8,20 +8,25 @@ Share files via AirDrop from [Yazi](https://yazi-rs.github.io/).
 
 - macOS
 - Xcode Command Line Tools (`xcode-select --install`)
+- `~/.local/bin` in your `PATH`
 
 ## Install
+
+1. Install the plugin:
 
 ```bash
 ya pack -a yoshi47/airdrop
 ```
 
-Then build and install the Swift binary:
+2. Build and install the Swift binary:
 
 ```bash
-cd ~/.config/yazi/plugins/airdrop.yazi/ && make && make install
+git clone https://github.com/yoshi47/airdrop.yazi /tmp/airdrop-build
+cd /tmp/airdrop-build && make && make install
+rm -rf /tmp/airdrop-build
 ```
 
-This compiles `airdrop.swift` and installs the binary to `~/.local/bin/airdrop`. Make sure `~/.local/bin` is in your `PATH`.
+This installs the `airdrop` binary to `~/.local/bin/`.
 
 ## Usage
 
