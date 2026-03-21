@@ -1,9 +1,3 @@
-local function find_bin()
-    local info = debug.getinfo(1, "S")
-    local plugin_dir = info.source:match("^@(.+)/") or "."
-    return plugin_dir .. "/airdrop", plugin_dir
-end
-
 local get_paths = ya.sync(function()
 	local paths = {}
 	for _, u in pairs(cx.active.selected) do
@@ -26,12 +20,11 @@ return {
 			return
 		end
 
-		local bin, plugin_dir = find_bin()
-		local output, err = Command(bin):arg(paths):output()
+		local output, err = Command("airdrop"):arg(paths):output()
 		if not output then
 			ya.notify({
 				title = "AirDrop",
-				content = "Binary not found. Run: cd " .. plugin_dir .. " && make",
+				content = "'airdrop' not found in PATH. Run 'make install' in the plugin directory.",
 				level = "error", timeout = 8,
 			})
 			return

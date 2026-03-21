@@ -15,14 +15,16 @@ Share files via AirDrop from [Yazi](https://yazi-rs.github.io/).
 ya pack -a yoshi47/airdrop
 ```
 
-Then build the Swift binary:
+Then build and install the Swift binary:
 
 ```bash
-cd ~/.local/state/yazi/packages/yoshi47/airdrop.yazi/
-make
+cd ~/.config/yazi/plugins/airdrop.yazi/
+make && make install
 ```
 
-> If you installed via a different method, `cd` to wherever the plugin is located and run `make`.
+This compiles `airdrop.swift` and copies the binary to `~/.local/bin/airdrop`. Make sure `~/.local/bin` is in your `PATH`.
+
+> If you installed via `ya pkg`, the plugin may be in `~/.local/state/yazi/packages/`. Use `ya pkg list` to find the path.
 
 ## Usage
 
@@ -36,17 +38,6 @@ prepend_keymap = [
 ```
 
 Select files (or hover over a file) and press `A` to open the AirDrop dialog.
-
-### Alternative: opener (not recommended)
-
-You can also register it as an opener in `yazi.toml`, but the binary path depends on the install method, making it less portable:
-
-```toml
-[opener]
-airdrop = [
-  { run = "~/.local/state/yazi/packages/yoshi47/airdrop.yazi/airdrop %s", desc = "Share via AirDrop", for = "macos", orphan = true },
-]
-```
 
 ## License
 
