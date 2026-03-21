@@ -18,13 +18,10 @@ ya pack -a yoshi47/airdrop
 Then build and install the Swift binary:
 
 ```bash
-cd ~/.config/yazi/plugins/airdrop.yazi/
-make && make install
+cd ~/.config/yazi/plugins/airdrop.yazi/ && make && make install
 ```
 
-This compiles `airdrop.swift` and copies the binary to `~/.local/bin/airdrop`. Make sure `~/.local/bin` is in your `PATH`.
-
-> If you installed via `ya pkg`, the plugin may be in `~/.local/state/yazi/packages/`. Use `ya pkg list` to find the path.
+This compiles `airdrop.swift` and installs the binary to `~/.local/bin/airdrop`. Make sure `~/.local/bin` is in your `PATH`.
 
 ## Usage
 
