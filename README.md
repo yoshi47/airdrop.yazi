@@ -15,7 +15,7 @@ Share files via AirDrop from [Yazi](https://yazi-rs.github.io/).
 1. Install the plugin:
 
 ```bash
-ya pack -a yoshi47/airdrop
+ya pkg add yoshi47/airdrop
 ```
 
 2. Build and install the Swift binary:
